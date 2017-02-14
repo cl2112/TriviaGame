@@ -1,9 +1,22 @@
-body {
+.mainContainer {
 	background-image: url(../images/bioshockbackground.jpg);
 	background-size: cover;
 	color: white;
+	background-position: fixed;
+}
+.mainContainer {
+	position: fixed;
+	height: 100vh;
+	width: 100%;
 }
 #mainLogo {
 	height: 100%;
 	width: 100%;
+}
+#mainScreen {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0%;
+	left: 0%;
 }

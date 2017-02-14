@@ -17,18 +17,42 @@ var multipleChoice = {
 	},
 };
 
+
+fadeInLogo();
+
+
+
+
+
+
+
+
+function fadeInLogo(){
+	$("#mainLogo").delay(3000).fadeTo(5000, 1).delay(3000).fadeTo(5000, 0);
+	$("#mainScreen").delay(16000).fadeTo(5000, 1);
+}
+
+
+
+
+
+
+var timer
+
+function runTimer(){
+	$("#timer").html(timerCount);
+	timerCount--;
+}
+
 function startTimer() {
-	setInterval(function() {
-		$("#timer").html(timerCount);
-		timerCount--;
-	},1000);
+	timer = setInterval(runTimer, 1000)
 };
 
 function pauseTimer(){
-	clearInterval(startTimer())
+	clearInterval(timer);
 };
 
-$("#button").on("click", function(){
+$("#start").on("click", function(){
 	startTimer();
 })
 $("#pause").on("click", function(){
