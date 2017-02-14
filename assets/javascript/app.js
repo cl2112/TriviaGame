@@ -13,297 +13,17 @@ var multipleChoice = {
 		o4: "Carl Suchong",
 	},
 	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q3: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q4: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q5: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
-	},
-	q2: {
-		q:,
-		a:,
-		o1:,
-		o2:,
-		o3:,
-		o4:,
+		q: "What is the nick-name given to the Adam Addicts",
+		a: "o2",
+		o1: "Junkers",
+		o2: "Splicers",
+		o3: "Adams",
+		o4: "Juciers",
 	},
 };
 
 
-fadeInLogo();
+//fadeInLogo();
 
 
 
@@ -344,18 +64,20 @@ $("#pause").on("click", function(){
 	pauseTimer();
 })
 
-
+var questionPicked
 
 $("#begin").on("click", function(){
-	$("#question").html(multipleChoice.q1.q);
-	$("#o1").html(multipleChoice.q1.o1);
-	$("#o2").html(multipleChoice.q1.o2);
-	$("#o3").html(multipleChoice.q1.o3);
-	$("#o4").html(multipleChoice.q1.o4);
+	questionPicked = multipleChoice["q"+Math.floor(Math.random()*2 +1)]
+	console.log(questionPicked)
+	$("#question").html(questionPicked.q);
+	$("#o1").html(questionPicked.o1);
+	$("#o2").html(questionPicked.o2);
+	$("#o3").html(questionPicked.o3);
+	$("#o4").html(questionPicked.o4);
 })
 
 $("h3").on("click", function(){
-	if ($(this).attr("id") == multipleChoice.q1.a){
+	if ($(this).attr("id") == questionPicked.a){
 		console.log("correct");
 	} else {
 		console.log("incorrect");
