@@ -66,6 +66,11 @@ $("#pause").on("click", function(){
 
 var questionPicked
 
+
+
+
+
+
 $("#begin").on("click", function(){
 	questionPicked = multipleChoice["q"+Math.floor(Math.random()*2 +1)]
 	console.log(questionPicked)
@@ -83,6 +88,8 @@ $("h3").on("click", function(){
 		console.log("incorrect");
 	}
 })
+
+
 
 
 
