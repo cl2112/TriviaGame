@@ -1,0 +1,9 @@
+body {
+	background-image: url(../images/bioshockbackground.jpg);
+	background-size: cover;
+	color: white;
+}
+#mainLogo {
+	height: 100%;
+	width: 100%;
+}
