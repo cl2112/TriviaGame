@@ -60,4 +60,47 @@ $("#pause").on("click", function(){
 })
 
 
+
+$("#begin").on("click", function(){
+	$("#question").html(multipleChoice.q1.q);
+	$("#o1").html(multipleChoice.q1.o1);
+	$("#o2").html(multipleChoice.q1.o2);
+	$("#o3").html(multipleChoice.q1.o3);
+	$("#o4").html(multipleChoice.q1.o4);
+})
+
+$("h3").on("click", function(){
+	if ($(this).attr("id") == multipleChoice.q1.a){
+		console.log("correct");
+	}
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
