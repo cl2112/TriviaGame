@@ -1,6 +1,10 @@
 $(document).ready(function(){
 
 var timerCount = 30;
+var questionPicked;
+var timer;
+var story = 0;
+var clickToProgress = 1
 
 
 var multipleChoice = {
@@ -23,8 +27,8 @@ var multipleChoice = {
 };
 
 
-//fadeInLogo();
-
+fadeInLogo();
+$("#clickToProgress").hide();
 
 
 
@@ -33,17 +37,39 @@ var multipleChoice = {
 
 
 function fadeInLogo(){
+
 	$("#mainLogo").delay(3000).fadeTo(5000, 1).delay(3000).fadeTo(5000, 0);
 	$("#blackScreen").delay(15000).fadeTo(3000, 0.7);
-	$("#mainScreen").delay(16000).fadeTo(5000, 0);
+	$("#mainScreen").delay(16000).fadeTo(5000, 1);
+	$("#narrative").delay(17000).fadeTo(5000, 1);
+	narrative();
+}
+
+$("#narrative").on("click", function() {
+	if (clickToProgress === 1) {
+		clickToProgress = 0;
+		story++;
+		narrative();
+	}
+	
+})
+
+function narrative(){
+	if (story === 0){
+		$("#narrativeText").html('"Wake up sleepy head. The show is about to begin."');
+		$("#clickToProgress").delay(5000).show();
+	}
+	if (story === 1){
+		$("#narrativeText").html('You slowly open your eyes to a spectacle of neon lights and garrish sounds.');
+		$("#blackScreen").fadeTo(7000, 0);
+		$("#clickToProgress").delay(8000).show();
+
+	}
 }
 
 
 
 
-
-
-var timer
 
 function runTimer(){
 	$("#timer").html(timerCount);
@@ -58,14 +84,7 @@ function pauseTimer(){
 	clearInterval(timer);
 };
 
-$("#start").on("click", function(){
-	startTimer();
-})
-$("#pause").on("click", function(){
-	pauseTimer();
-})
 
-var questionPicked
 
 
 

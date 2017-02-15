@@ -3,6 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Domine" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<script
 	src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -15,15 +17,19 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="mainContainer">
-				<div id="blackScreen" style="opacity: 0;"></div>
+				<div id="blackScreen" style="opacity: 1;"></div>
 				<img id="mainLogo" src="assets/images/bioshock-logo.png" style="opacity: 0;">
-				<div class="col-md-12 text-center" id="mainScreen" style="opacity: 1">
+				<div class="col-md-12 text-center" id="mainScreen" style="opacity: 0;">
+					<div id="narrative" style="opacity: 0;">
+						<h2 id="narrativeText"></h2>
+						<h4 id="clickToProgress">[Click to Continue]</h4>
+					</div>
 					<h1>Bioshock Trivia Game</h1>
 					<h1 id="timer"></h1>
 					<br>
 					<button id="begin">Begin the Game</button>
 					<br>
-					<img src="assets/images/neon_sign.gif" id="neonSign">
+					<img src="assets/images/neon_sign.gif" id="neonSign" style="opacity: 0;">
 					<div id="neonSignScreen" class="text-center">
 						<h2 id="question">huh</h2>
 						<h3 id="o1"></h3>
