@@ -4,7 +4,7 @@ var timerCount = 30;
 var questionPicked;
 var timer;
 var story = 0;
-var clickToProgress = 1
+var clickToProgressNarrative = 1
 
 
 var multipleChoice = {
@@ -39,16 +39,17 @@ $("#clickToProgress").hide();
 function fadeInLogo(){
 
 	$("#mainLogo").delay(3000).fadeTo(5000, 1).delay(3000).fadeTo(5000, 0);
-	$("#blackScreen").delay(15000).fadeTo(3000, 0.7);
+	$("#blackScreen").delay(15000).fadeTo(3000, 0.9);
 	$("#mainScreen").delay(16000).fadeTo(5000, 1);
 	$("#narrative").delay(17000).fadeTo(5000, 1);
 	narrative();
 }
 
 $("#narrative").on("click", function() {
-	if (clickToProgress === 1) {
-		clickToProgress = 0;
+	if (clickToProgressNarrative === 1) {
+		clickToProgressNarrative = 0;
 		story++;
+		$("#clickToProgress").hide();
 		narrative();
 	}
 	
@@ -57,7 +58,7 @@ $("#narrative").on("click", function() {
 function narrative(){
 	if (story === 0){
 		$("#narrativeText").html('"Wake up sleepy head. The show is about to begin."');
-		$("#clickToProgress").delay(5000).show();
+		$("#clickToProgress").delay(1000).show();
 	}
 	if (story === 1){
 		$("#narrativeText").html('You slowly open your eyes to a spectacle of neon lights and garrish sounds.');
