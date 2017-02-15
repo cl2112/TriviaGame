@@ -28,7 +28,7 @@ var multipleChoice = {
 
 
 fadeInLogo();
-$("#clickToProgress").hide();
+
 
 
 
@@ -49,7 +49,7 @@ $("#narrative").on("click", function() {
 	if (clickToProgressNarrative === 1) {
 		clickToProgressNarrative = 0;
 		story++;
-		$("#clickToProgress").hide();
+		$("#clickToProgress").fadeTo(100, 0);
 		narrative();
 	}
 	
@@ -58,12 +58,12 @@ $("#narrative").on("click", function() {
 function narrative(){
 	if (story === 0){
 		$("#narrativeText").html('"Wake up sleepy head. The show is about to begin."');
-		$("#clickToProgress").delay(1000).show();
+		$("#clickToProgress").delay(20000).fadeTo(2000, .6);
 	}
 	if (story === 1){
 		$("#narrativeText").html('You slowly open your eyes to a spectacle of neon lights and garrish sounds.');
 		$("#blackScreen").fadeTo(7000, 0);
-		$("#clickToProgress").delay(8000).show();
+		$("#clickToProgress").delay(8000).fadeTo(2000, .6);
 
 	}
 }
