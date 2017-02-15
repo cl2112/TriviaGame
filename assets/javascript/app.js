@@ -34,7 +34,8 @@ var multipleChoice = {
 
 function fadeInLogo(){
 	$("#mainLogo").delay(3000).fadeTo(5000, 1).delay(3000).fadeTo(5000, 0);
-	$("#mainScreen").delay(16000).fadeTo(5000, 1);
+	$("#blackScreen").delay(15000).fadeTo(3000, 0.7);
+	$("#mainScreen").delay(16000).fadeTo(5000, 0);
 }
 
 

@@ -1,5 +1,5 @@
 .mainContainer {
-	background-image: url(../images/bioshockbackground.jpg);
+	background-image: url(../images/bs1_welcome_to_fort_frolic.png);
 	background-size: cover;
 	color: white;
 	background-position: fixed;
@@ -34,4 +34,13 @@
 	height: 45%;
 	width: 44%;
 	text-shadow: 2px 2px 5px black;
+}
+#blackScreen {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	z-index: -1;
 }
