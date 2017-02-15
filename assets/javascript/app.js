@@ -13,7 +13,7 @@ var multipleChoice = {
 		o4: "Carl Suchong",
 	},
 	q2: {
-		q: "What is the nick-name given to the Adam Addicts",
+		q: "What is the nick-name given to the Adam Addicts?",
 		a: "o2",
 		o1: "Junkers",
 		o2: "Splicers",
@@ -96,7 +96,15 @@ $("h3").on("click", function(){
 
 
 
+$("[id^='o']").on("mouseover", function(){
+	$(this).css("text-shadow","0 0 3px gold");
+	console.log("yup");
+});
 
+$("[id^='o']").on("mouseout", function(){
+	$(this).css("text-shadow","");
+	console.log("yup");
+});
 
 
 

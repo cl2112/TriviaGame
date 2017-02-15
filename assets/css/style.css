@@ -20,3 +20,18 @@
 	top: 0%;
 	left: 0%;
 }
+#neonSign {
+	position: absolute;
+	bottom: 20%;
+	left: 20%;
+	height: 60%;
+	width: 60%;
+}
+#neonSignScreen {
+	position: absolute;
+	top: 29%;
+	left: 28%;
+	height: 45%;
+	width: 44%;
+	text-shadow: 2px 2px 5px black;
+}
