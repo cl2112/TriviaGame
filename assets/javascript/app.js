@@ -312,7 +312,7 @@ function pauseTimer(){
 
 
 function askQuestion(){
-	questionPicked = multipleChoice["q"+Math.floor(Math.random()*20 +1)]
+	questionPicked = multipleChoice["q"+Math.floor(Math.random()*15 +1)]
 	console.log(questionPicked)
 	$("#question").html(questionPicked.q);
 	$("#o1").html(questionPicked.o1);
