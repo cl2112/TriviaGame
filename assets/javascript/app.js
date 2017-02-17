@@ -301,8 +301,9 @@ function startTimer() {
 };
 
 function pauseTimer(){
-	clearInterval(runTimer);
-	timer = 10;
+	clearInterval(timer);
+	timerCount = 10;
+	$("#timer").html(timerCount);
 };
 
 
@@ -330,27 +331,35 @@ $("h3").on("click", function(){
 		ableToAnswer = 0;
 		pauseTimer();
 		if ($(this).attr("id") == questionPicked.a){
-		console.log("correct");
-		pauseTimer();
-		$("#timer").fadeTo(5000, 0);
-		$("#narrativeText").html('"Your answer is..."');
-		$("#narrativeText").fadeTo(5000, 0, function(){
-			$("#narrativeText").fadeTo(10, 1).html('"CORRECT!"').fadeTo(1000, 0, function(){
-				$("#narrativeText").html(questionPicked.correct).fadeTo(100, 1).delay(2000).fadeTo(1000, 0, function(){
-					$("#narrativeText").html("Next Question!").fadeTo(1000, 1, function(){
-						timerCount = 10;
-						$("#timer").fadeTo(1000, 1, function(){
-						startTimer();
-						askQuestion();
-						})
-					});
-				})
-				
-			});
-		})
+			console.log("correct");
+			$("#timer").fadeTo(5000, 0);
+			$("#narrativeText").html('"Your answer is..."');
+			$("#narrativeText").fadeTo(5000, 0, function(){
+				$("#narrativeText").fadeTo(10, 1).html('"CORRECT!"').fadeTo(2000, 0, function(){
+					$("#narrativeText").html(questionPicked.correct).fadeTo(100, 1).delay(2000).fadeTo(1000, 0, function(){
+						$("#narrativeText").html("Next Question!").fadeTo(1000, 1, function(){
+							$("#timer").fadeTo(1000, 1, function(){
+							askQuestion();
+							})
+						});
+					})
+				});
+			})
 		} else {
-		console.log("incorrect");
-		pauseTimer();
+			console.log("incorrect");
+			$("#timer").fadeTo(5000, 0);
+			$("#narrativeText").html('"Your answer is..."');
+			$("#narrativeText").fadeTo(5000, 0, function(){
+				$("#narrativeText").fadeTo(10, 1).html('"CORRECT!"').fadeTo(2000, 0, function(){
+					$("#narrativeText").html(questionPicked.correct).fadeTo(100, 1).delay(2000).fadeTo(1000, 0, function(){
+						$("#narrativeText").html("Next Question!").fadeTo(1000, 1, function(){
+							$("#timer").fadeTo(1000, 1, function(){
+							askQuestion();
+							})
+						});
+					})
+				});
+			})
 		}
 	}
 	
