@@ -4,7 +4,8 @@ var timerCount = 10;
 var questionPicked;
 var timer;
 var story = 0;
-var clickToProgressNarrative = 1
+var clickToProgressNarrative = 1;
+var ableToAnswer = 0;
 
 
 var multipleChoice = {
@@ -319,28 +320,33 @@ function askQuestion(){
 	$("#o2").html(questionPicked.o2);
 	$("#o3").html(questionPicked.o3);
 	$("#o4").html(questionPicked.o4);
+	ableToAnswer = 1;
 }
 
 $("h3").on("click", function(){
-	if ($(this).attr("id") == questionPicked.a){
+	if(ableToAnswer = 1){
+		ableToAnswer = 0;
+		if ($(this).attr("id") == questionPicked.a){
 		console.log("correct");
 		pauseTimer();
 		$("#timer").fadeTo(5000, 0);
-		$("#narrativeText").html('"Your answer:'+ $(this).html()+' is..."');
+		$("#narrativeText").html('"Your answer is..."');
 		$("#narrativeText").fadeTo(5000, 0, function(){
 			$("#narrativeText").fadeTo(10, 1).html('"CORRECT!"').fadeTo(2000, 1, function(){
-				$("#narrativeText").html('"Next question!"');
+				$("#narrativeText").html(questionPicked.correct).fadeTo(2000, 0).html("Next Question!").fadeTo(2000, 1);
 				timerCount = 10;
 				$("#timer").fadeTo(1000, 1, function(){
 					startTimer();
 					askQuestion();
 				})
 			});
-	})
-	} else {
+		})
+		} else {
 		console.log("incorrect");
 		pauseTimer();
+		}
 	}
+	
 })
 
 
