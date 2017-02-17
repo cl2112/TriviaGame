@@ -44,9 +44,9 @@ var multipleChoice = {
 		a: "o1",
 		correct: "Crazy story. Serendipitous. Way too serendipitous.",
 		wrong: "Hah, did you really think that or do you like shocks? Can't say I blame you.",
-		o1: "Seeing a dock worker's injured hands heal after a bite from a sea slug.",
-		o2: "Finding some sludge on the bottom of a diver's boot.",
-		o3: "Researching the effects of the intense pressure at the bottom of the sea on blood.",
+		o1: "Seeing a dock worker's hands.",
+		o2: "Finding sludge on a diver's boot.",
+		o3: "Researching the effects of pressure on blood.",
 		o4: "While throwing out an old sandwich.",
 	},
 	q5: {
@@ -302,8 +302,6 @@ function startTimer() {
 
 function pauseTimer(){
 	clearInterval(timer);
-	timerCount = 10;
-	$("#timer").html(timerCount);
 };
 
 
@@ -330,11 +328,16 @@ $("h3").on("click", function(){
 	if(ableToAnswer = 1){
 		ableToAnswer = 0;
 		pauseTimer();
+		$(this).css("background-color","gold");
+		var answerPicked = $(this);
 		if ($(this).attr("id") == questionPicked.a){
 			console.log("correct");
 			$("#timer").fadeTo(5000, 0);
 			$("#narrativeText").html('"Your answer is..."');
 			$("#narrativeText").fadeTo(5000, 0, function(){
+				timerCount = 10;
+				$("#timer").html(timerCount);
+				answerPicked.css("background-color","black");
 				$("#narrativeText").fadeTo(10, 1).html('"CORRECT!"').fadeTo(2000, 0, function(){
 					$("#narrativeText").html(questionPicked.correct).fadeTo(100, 1).delay(2000).fadeTo(1000, 0, function(){
 						$("#narrativeText").html("Next Question!").fadeTo(1000, 1, function(){
@@ -349,9 +352,13 @@ $("h3").on("click", function(){
 			console.log("incorrect");
 			$("#timer").fadeTo(5000, 0);
 			$("#narrativeText").html('"Your answer is..."');
+			answerPicked.css("background-color","");
 			$("#narrativeText").fadeTo(5000, 0, function(){
-				$("#narrativeText").fadeTo(10, 1).html('"CORRECT!"').fadeTo(2000, 0, function(){
-					$("#narrativeText").html(questionPicked.correct).fadeTo(100, 1).delay(2000).fadeTo(1000, 0, function(){
+				timerCount = 10;
+				$("#timer").html(timerCount);
+				answerPicked.css("background-color","");
+				$("#narrativeText").fadeTo(10, 1).html('"WRONG!"').fadeTo(2000, 0, function(){
+					$("#narrativeText").html(questionPicked.wrong).fadeTo(100, 1).delay(2000).fadeTo(1000, 0, function(){
 						$("#narrativeText").html("Next Question!").fadeTo(1000, 1, function(){
 							$("#timer").fadeTo(1000, 1, function(){
 							askQuestion();
