@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-var timerCount = 30;
+var timerCount = 10;
 var questionPicked;
 var timer;
 var story = 0;
@@ -11,6 +11,8 @@ var multipleChoice = {
 	q1: {
 		q: "What is the name of the founder of Rapture?",
 		a: "o1",
+		correct: "Seems like his boasting was good for something, heh.",
+		wrong: "An interesting thought. But a wrong answer.",
 		o1: "Andrew Ryan",
 		o2: "Frank Fontaine",
 		o3: "Anna Tenenbaum",
@@ -19,10 +21,192 @@ var multipleChoice = {
 	q2: {
 		q: "What is the nick-name given to the Adam Addicts?",
 		a: "o2",
+		correct: "I like Adams more, but what you can't control what people do can you? Heh.",
+		wrong: "Ah close. Kinda. But wrong? Absolutely.",
 		o1: "Junkers",
 		o2: "Splicers",
 		o3: "Adams",
 		o4: "Juciers",
+	},
+	q3: {
+		q: "Who was the leader of the revolutionaries durring the Rapture Civil War?",
+		a: "o4",
+		correct: "Who is Atlas? Who cares I say.",
+		wrong: "Did you not see the posters? Or can you not read? Might explain your performance so far. Or not.",
+		o1: "Wilkins",
+		o2: "Tenenbaum",
+		o3: "Suchong",
+		o4: "Atlas",
+	},
+	q4: {
+		q: "How did 'Das Wunderkind' come to discover Adam?",
+		a: "o1",
+		correct: "Crazy story. Serendipitous. Way too serendipitous.",
+		wrong: "Hah, did you really think that or do you like shocks? Can't say I blame you.",
+		o1: "Seeing a dock worker's injured hands heal after a bite from a sea slug.",
+		o2: "Finding some sludge on the bottom of a diver's boot.",
+		o3: "Researching the effects of the intense pressure at the bottom of the sea on blood.",
+		o4: "While throwing out an old sandwich.",
+	},
+	q5: {
+		q: "Who is the leader of Rapture's sumggling ring?",
+		a: "o2",
+		correct: "Ah yes. The yung to Ryan's yang.",
+		wrong: "Best not to ask questions eh? Normally a good strategy. Today though, the piper's calling, eh?",
+		o1: "Andrew Ryan",
+		o2: "Frank Fontaine",
+		o3: "Sander Cohen",
+		o4: "Peach Wilkins",
+	},
+	q6: {
+		q: "What currency is accepted at Gatherer's Garden?",
+		a: "o3",
+		correct: "",
+		wrong: "",
+		o1: "Eve",
+		o2: "Gold",
+		o3: "Adam",
+		o4: "Blood",
+	},
+	q7: {
+		q: "",
+		a: "",
+		correct: "",
+		wrong: "",
+		o1: "",
+		o2: "",
+		o3: "",
+		o4: "",
+	},
+	q8: {
+		q: "",
+		a: "",
+		correct: "",
+		wrong: "",
+		o1: "",
+		o2: "",
+		o3: "",
+		o4: "",
+	},
+	q9: {
+		q: "",
+		a: "",
+		correct: "",
+		wrong: "",
+		o1: "",
+		o2: "",
+		o3: "",
+		o4: "",
+	},
+	q10: {
+		q: "",
+		a: "",
+		correct: "",
+		wrong: "",
+		o1: "",
+		o2: "",
+		o3: "",
+		o4: "",
+	},
+	q11: {
+		q: "",
+		a: "",
+		correct: "",
+		wrong: "",
+		o1: "",
+		o2: "",
+		o3: "",
+		o4: "",
+	},
+	q12: {
+		q: "",
+		a: "",
+		correct: "",
+		wrong: "",
+		o1: "",
+		o2: "",
+		o3: "",
+		o4: "",
+	},
+	q13: {
+		q: "",
+		a: "",
+		correct: "",
+		wrong: "",
+		o1: "",
+		o2: "",
+		o3: "",
+		o4: "",
+	},
+	q14: {
+		q: "",
+		a: "",
+		correct: "",
+		wrong: "",
+		o1: "",
+		o2: "",
+		o3: "",
+		o4: "",
+	},
+	q15: {
+		q: "",
+		a: "",
+		correct: "",
+		wrong: "",
+		o1: "",
+		o2: "",
+		o3: "",
+		o4: "",
+	},
+	q16: {
+		q: "",
+		a: "",
+		correct: "",
+		wrong: "",
+		o1: "",
+		o2: "",
+		o3: "",
+		o4: "",
+	},
+	q17: {
+		q: "",
+		a: "",
+		correct: "",
+		wrong: "",
+		o1: "",
+		o2: "",
+		o3: "",
+		o4: "",
+	},
+	q18: {
+		q: "",
+		a: "",
+		correct: "",
+		wrong: "",
+		o1: "",
+		o2: "",
+		o3: "",
+		o4: "",
+	},
+	q19: {
+		q: "",
+		a: "",
+		correct: "",
+		wrong: "",
+		o1: "",
+		o2: "",
+		o3: "",
+		o4: "",
+	},
+	q20: {
+		q: "",
+		a: "",
+		correct: "",
+		wrong: "",
+		o1: "",
+		o2: "",
+		o3: "",
+		o4: "",
 	},
 };
 
@@ -63,8 +247,78 @@ function narrative(){
 	if (story === 1){
 		$("#narrativeText").html('You slowly open your eyes to a spectacle of neon lights and garrish sounds.');
 		$("#blackScreen").fadeTo(7000, 0);
-		$("#clickToProgress").delay(8000).fadeTo(2000, .6);
-
+		$("#clickToProgress").delay(8000).fadeTo(2000, .6, function(){
+			clickToProgressNarrative = 1;
+		});
+		
+	}
+	if (story === 2){
+		$("#blackScreen").fadeTo(2000, 1, function(){
+			$(".mainContainer").delay(2000).css("background-image","url(assets/images/frolic_splicer.png)");
+			$("#narrativeText").delay(2000).html('A figure wearing a decrepid mask starts speaking, as if to an audience.');
+			$("#blackScreen").fadeTo(3000, 0);
+			$("#clickToProgress").delay(3000).fadeTo(2000, .6, function(){
+			clickToProgressNarrative = 1;
+			});
+		});
+	}
+	if (story === 3){
+		$("#narrativeText").html('"Welcome to another game of Smart or Dead!"');
+		$("#clickToProgress").fadeTo(2000, .6, function(){
+			clickToProgressNarrative = 1;
+		});
+	}
+	if (story === 4){
+		$("#narrativeText").html('"Where we find out if our lucky contestant is either Smart..."');
+		$("#clickToProgress").fadeTo(2000, .6, function(){
+			clickToProgressNarrative = 1;
+		});
+	}
+	if (story === 5){
+		$("#narrativeText").html('"OR DEAD! HA HA HA HA HAAA!"');
+		$("#clickToProgress").fadeTo(2000, .6, function(){
+			clickToProgressNarrative = 1;
+		});
+	}
+	if (story === 6){
+		$("#narrativeText").html('The madman starts banging on the rail and laughing violently.');
+		$("#clickToProgress").fadeTo(2000, .6, function(){
+			clickToProgressNarrative = 1;
+		});
+	}
+	if (story === 7){
+		$("#narrativeText").html('"Alright, alright, lets begin."');
+		$("#clickToProgress").fadeTo(2000, .6, function(){
+			clickToProgressNarrative = 1;
+		});
+	}
+	if (story === 8){
+		$("#neonSign").css("bottom", "100%");
+		$("#narrativeText").html('Gears start churning and from above a large neon sign rolls into view.');
+		$("#neonSign").fadeTo(100, 1).animate({bottom:"30%"},5000, function(){
+			$("#clickToProgress").fadeTo(2000, .6, function(){
+			clickToProgressNarrative = 1;
+			});
+		});		
+	}
+	if (story === 9){
+		$("#narrativeText").html('"Now. The rules are simple."');
+		$("#clickToProgress").delay(2000).fadeTo(2000, .6, function(){
+			clickToProgressNarrative = 1;
+		});
+	}
+	if (story === 10){
+		$("#narrativeText").html('"I ask you a question and, you, then answer said question. OK? Great."');
+		$("#clickToProgress").delay(2000).fadeTo(2000, .6, function(){
+			clickToProgressNarrative = 1;
+		});
+	}
+	if (story === 11){
+		$("#narrativeText").html('"Oh, and you only have 10 seconds to answer. HAH! Here we go!"');
+		$("#clickToProgress").delay(1000).fadeTo(2000, 0, function(){
+			startTimer();
+			askQuestion();
+		});
 	}
 }
 
@@ -74,6 +328,21 @@ function narrative(){
 
 function runTimer(){
 	$("#timer").html(timerCount);
+	if (timerCount === 5){
+		$("#narrativeText").html('"Hurry up, time is running out!"');
+	}
+	if (timerCount === 3){
+		$("#narrativeText").html('"3!"');
+	}
+	if (timerCount === 2){
+		$("#narrativeText").html('"2!"');
+	}
+	if (timerCount === 1){
+		$("#narrativeText").html('"1!"');
+	}
+	if (timerCount === 0){
+		$("#narrativeText").html('"Aww, looks like you ran out of time."');
+	}
 	timerCount--;
 }
 
@@ -92,21 +361,35 @@ function pauseTimer(){
 
 
 
-$("#begin").on("click", function(){
-	questionPicked = multipleChoice["q"+Math.floor(Math.random()*2 +1)]
+function askQuestion(){
+	questionPicked = multipleChoice["q"+Math.floor(Math.random()*20 +1)]
 	console.log(questionPicked)
 	$("#question").html(questionPicked.q);
 	$("#o1").html(questionPicked.o1);
 	$("#o2").html(questionPicked.o2);
 	$("#o3").html(questionPicked.o3);
 	$("#o4").html(questionPicked.o4);
-})
+}
 
 $("h3").on("click", function(){
 	if ($(this).attr("id") == questionPicked.a){
 		console.log("correct");
+		pauseTimer();
+		$("#timer").fadeTo(5000, 0);
+		$("#narrativeText").html('"Your answer:'+ $(this).html()+' is..."');
+		$("#narrativeText").fadeTo(5000, 0, function(){
+			$("#narrativeText").fadeTo(10, 1).html('"CORRECT!"').fadeTo(2000, 1, function(){
+				$("#narrativeText").html('"Next question!"');
+				timerCount = 10;
+				$("#timer").fadeTo(1000, 1, function(){
+					startTimer();
+					askQuestion();
+				})
+			});
+	})
 	} else {
 		console.log("incorrect");
+		pauseTimer();
 	}
 })
 
@@ -119,12 +402,10 @@ $("h3").on("click", function(){
 
 $("[id^='o']").on("mouseover", function(){
 	$(this).css("text-shadow","0 0 3px gold");
-	console.log("yup");
 });
 
 $("[id^='o']").on("mouseout", function(){
 	$(this).css("text-shadow","");
-	console.log("yup");
 });
 
 
