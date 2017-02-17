@@ -267,7 +267,6 @@ function narrative(){
 	if (story === 11){
 		$("#narrativeText").html('"Oh, and you only have 10 seconds to answer. HAH! Here we go!"');
 		$("#clickToProgress").delay(1000).fadeTo(2000, 0, function(){
-			startTimer();
 			askQuestion();
 		});
 	}
@@ -302,7 +301,8 @@ function startTimer() {
 };
 
 function pauseTimer(){
-	clearInterval(timer);
+	clearInterval(runTimer);
+	timer = 10;
 };
 
 
@@ -321,24 +321,31 @@ function askQuestion(){
 	$("#o3").html(questionPicked.o3);
 	$("#o4").html(questionPicked.o4);
 	ableToAnswer = 1;
+	startTimer();
+	$("#timer").fadeTo(1000, 1);
 }
 
 $("h3").on("click", function(){
 	if(ableToAnswer = 1){
 		ableToAnswer = 0;
+		pauseTimer();
 		if ($(this).attr("id") == questionPicked.a){
 		console.log("correct");
 		pauseTimer();
 		$("#timer").fadeTo(5000, 0);
 		$("#narrativeText").html('"Your answer is..."');
 		$("#narrativeText").fadeTo(5000, 0, function(){
-			$("#narrativeText").fadeTo(10, 1).html('"CORRECT!"').fadeTo(2000, 1, function(){
-				$("#narrativeText").html(questionPicked.correct).fadeTo(2000, 0).html("Next Question!").fadeTo(2000, 1);
-				timerCount = 10;
-				$("#timer").fadeTo(1000, 1, function(){
-					startTimer();
-					askQuestion();
+			$("#narrativeText").fadeTo(10, 1).html('"CORRECT!"').fadeTo(1000, 0, function(){
+				$("#narrativeText").html(questionPicked.correct).fadeTo(100, 1).delay(2000).fadeTo(1000, 0, function(){
+					$("#narrativeText").html("Next Question!").fadeTo(1000, 1, function(){
+						timerCount = 10;
+						$("#timer").fadeTo(1000, 1, function(){
+						startTimer();
+						askQuestion();
+						})
+					});
 				})
+				
 			});
 		})
 		} else {
