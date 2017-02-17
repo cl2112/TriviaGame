@@ -22,7 +22,7 @@ var multipleChoice = {
 	q2: {
 		q: "What is the nick-name given to the Adam Addicts?",
 		a: "o2",
-		correct: "I like Adams more, but what you can't control what people do can you? Heh.",
+		correct: "I like Adams more, but you can't control what people do can you? Heh.",
 		wrong: "Ah, close. Kinda. But wrong? Absolutely.",
 		o1: "Junkers",
 		o2: "Splicers",
@@ -337,7 +337,7 @@ $("h3").on("click", function(){
 			$("#narrativeText").fadeTo(5000, 0, function(){
 				timerCount = 10;
 				$("#timer").html(timerCount);
-				answerPicked.css("background-color","black");
+				answerPicked.css("background-color","");
 				$("#narrativeText").fadeTo(10, 1).html('"CORRECT!"').fadeTo(2000, 0, function(){
 					$("#narrativeText").html(questionPicked.correct).fadeTo(100, 1).delay(2000).fadeTo(1000, 0, function(){
 						$("#narrativeText").html("Next Question!").fadeTo(1000, 1, function(){
@@ -352,7 +352,6 @@ $("h3").on("click", function(){
 			console.log("incorrect");
 			$("#timer").fadeTo(5000, 0);
 			$("#narrativeText").html('"Your answer is..."');
-			answerPicked.css("background-color","");
 			$("#narrativeText").fadeTo(5000, 0, function(){
 				timerCount = 10;
 				$("#timer").html(timerCount);
