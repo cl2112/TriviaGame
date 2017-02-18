@@ -10,6 +10,7 @@ var questionsAsked = [];
 var correctAnswers = 0;
 var wrongAnswers = 0;
 var noAnswer = 0;
+var playAgain = 0;
 
 
 
@@ -300,6 +301,7 @@ function runTimer(){
 		$("#narrativeText").html('"1!"');
 	}
 	if (timerCount === 0){
+		$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0);
 		$("#narrativeText").html('"Aww, looks like you ran out of time."');
 		pauseTimer();
 		console.log("Ran out of time.");
@@ -415,6 +417,7 @@ $("h3").on("click", function(){
 				timerCount = 10;
 				$("#timer").html(timerCount);
 				answerPicked.css("background-color","red");
+				$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0);
 				$("#narrativeText").fadeTo(10, 1).html('"WRONG!"').fadeTo(2000, 0, function(){
 					$("#narrativeText").html("The correct answer was...").fadeTo(1000, 1, function(){
 						$("#"+questionPicked.a).css("background-color","gold");
@@ -454,7 +457,10 @@ function ending(){
 							$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0, function(){
 								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
 									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
-										$("#narrativeText").html("Maybe I should change the show's name to Smart <b>AND</b> Dead?").fadeTo(5000,1);
+										$("#narrativeText").html("Maybe I should change the show's name to Smart <b>AND</b> Dead?").fadeTo(5000,1, function(){
+											$("#neonSignScreen").addClass("playAgain").append("<h1>Click Here To Play Again!</h1>");
+											playAgain=1;
+										});
 									})
 								});
 							})
@@ -466,7 +472,10 @@ function ending(){
 							$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0, function(){
 								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
 									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
-										$("#narrativeText").html("I LOVE THIS GAME!").fadeTo(5000,1);
+										$("#narrativeText").html("I LOVE THIS GAME!").fadeTo(5000,1, function(){
+											$("#neonSignScreen").addClass("playAgain").append("<h1>Click Here To Play Again!</h1>");
+											playAgain=1;
+										});
 									})
 								});
 							})
@@ -478,7 +487,10 @@ function ending(){
 							$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0, function(){
 								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
 									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
-										$("#narrativeText").html("I love this game!").fadeTo(5000,1);
+										$("#narrativeText").html("I love this game!").fadeTo(5000,1, function(){
+											$("#neonSignScreen").addClass("playAgain").append("<h1>Click Here To Play Again!</h1>");
+											playAgain=1;
+										});
 									})
 								});
 							})
@@ -490,7 +502,10 @@ function ending(){
 							$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0, function(){
 								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
 									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
-										$("#narrativeText").html("Hmm. They just don't make contestants like they used to.").fadeTo(5000,1);
+										$("#narrativeText").html("Hmm. They just don't make contestants like they used to.").fadeTo(5000,1, function(){
+											$("#neonSignScreen").addClass("playAgain").append("<h1>Click Here To Play Again!</h1>");
+											playAgain=1;
+										});
 									})
 								});
 							})
@@ -515,7 +530,11 @@ $("[id^='o']").on("mouseout", function(){
 });
 
 
-
+$("neonSignScreen").on("click", function(){
+	if (playAgain === 1){
+		location.reload(true);
+	}
+})
 
 
 
