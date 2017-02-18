@@ -22,7 +22,7 @@ var multipleChoice = {
 		wrong: "An interesting thought. But a wrong answer.",
 		o1: "Andrew Ryan",
 		o2: "Frank Fontaine",
-		o3: "Anna Tenenbaum",
+		o3: "Brigid Tenenbaum",
 		o4: "Carl Suchong",
 	},
 	q2: {
@@ -178,7 +178,7 @@ fadeInLogo();
 
 
 function fadeInLogo(){
-
+	document.getElementById("cohenMusic").play();
 	$("#mainLogo").delay(3000).fadeTo(5000, 1).delay(3000).fadeTo(5000, 0);
 	$("#blackScreen").delay(15000).fadeTo(3000, 0.9);
 	$("#mainScreen").delay(16000).fadeTo(5000, 1);
@@ -239,6 +239,7 @@ function narrative(){
 	}
 	if (story === 6){
 		$("#narrativeText").html('The madman starts banging on the rail and laughing violently.');
+		document.getElementById("bang").play();
 		$("#clickToProgress").fadeTo(2000, .6, function(){
 			clickToProgressNarrative = 1;
 		});
@@ -301,6 +302,7 @@ function runTimer(){
 		$("#narrativeText").html('"1!"');
 	}
 	if (timerCount === 0){
+		document.getElementById("shock").play();
 		$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0);
 		$("#narrativeText").html('"Aww, looks like you ran out of time."');
 		pauseTimer();
@@ -398,6 +400,7 @@ $("h3").on("click", function(){
 				timerCount = 10;
 				$("#timer").html(timerCount);
 				$("#narrativeText").fadeTo(10, 1).html('"CORRECT!"').fadeTo(2000, 0, function(){
+					document.getElementById("yay").play();
 					$("#narrativeText").html(questionPicked.correct).fadeTo(100, 1).delay(2000).fadeTo(1000, 0, function(){
 						$("#narrativeText").html("Next Question!").fadeTo(1000, 1, function(){
 							answerPicked.css("background-color","");
@@ -417,6 +420,7 @@ $("h3").on("click", function(){
 				timerCount = 10;
 				$("#timer").html(timerCount);
 				answerPicked.css("background-color","red");
+				document.getElementById("shock").play();
 				$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0);
 				$("#narrativeText").fadeTo(10, 1).html('"WRONG!"').fadeTo(2000, 0, function(){
 					$("#narrativeText").html("The correct answer was...").fadeTo(1000, 1, function(){
@@ -458,7 +462,7 @@ function ending(){
 								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
 									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
 										$("#narrativeText").html("Maybe I should change the show's name to Smart <b>AND</b> Dead?").fadeTo(5000,1, function(){
-											$("#neonSignScreen").addClass("playAgain").append("<h1>Click Here To Play Again!</h1>");
+											$("#neonSignScreen").append("<h1 id='clickToPlayAgain'>Click Here To Play Again!</h1>");
 											playAgain=1;
 										});
 									})
@@ -473,7 +477,7 @@ function ending(){
 								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
 									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
 										$("#narrativeText").html("I LOVE THIS GAME!").fadeTo(5000,1, function(){
-											$("#neonSignScreen").addClass("playAgain").append("<h1>Click Here To Play Again!</h1>");
+											$("#neonSignScreen").append("<h1 id='clickToPlayAgain'>Click Here To Play Again!</h1>");
 											playAgain=1;
 										});
 									})
@@ -488,7 +492,7 @@ function ending(){
 								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
 									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
 										$("#narrativeText").html("I love this game!").fadeTo(5000,1, function(){
-											$("#neonSignScreen").addClass("playAgain").append("<h1>Click Here To Play Again!</h1>");
+											$("#neonSignScreen").append("<h1 id='clickToPlayAgain'>Click Here To Play Again!</h1>");
 											playAgain=1;
 										});
 									})
@@ -503,7 +507,7 @@ function ending(){
 								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
 									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
 										$("#narrativeText").html("Hmm. They just don't make contestants like they used to.").fadeTo(5000,1, function(){
-											$("#neonSignScreen").addClass("playAgain").append("<h1>Click Here To Play Again!</h1>");
+											$("#neonSignScreen").append("<h1 id='clickToPlayAgain'>Click Here To Play Again!</h1>");
 											playAgain=1;
 										});
 									})
@@ -530,7 +534,7 @@ $("[id^='o']").on("mouseout", function(){
 });
 
 
-$("neonSignScreen").on("click", function(){
+$("#clickToPlayAgain").on("click", function(){
 	if (playAgain === 1){
 		location.reload(true);
 	}
