@@ -6,9 +6,11 @@ var timer;
 var story = 0;
 var clickToProgressNarrative = 1;
 var ableToAnswer = 0;
-var questionsAsked = 0;
+var questionsAsked = [];
 var correctAnswers = 0;
 var wrongAnswers = 0;
+var noAnswer = 0;
+
 
 
 var multipleChoice = {
@@ -315,17 +317,26 @@ function pauseTimer(){
 
 
 function askQuestion(){
-	questionPicked = multipleChoice["q"+Math.floor(Math.random()*15 +1)]
-	console.log(questionPicked)
-	$("#question").html(questionPicked.q);
-	$("#o1").html(questionPicked.o1);
-	$("#o2").html(questionPicked.o2);
-	$("#o3").html(questionPicked.o3);
-	$("#o4").html(questionPicked.o4);
-	questionsAsked++;
-	ableToAnswer = 1;
-	startTimer();
-	$("#timer").fadeTo(1000, 1);
+	questionPicked = multipleChoice["q"+Math.floor(Math.random()*15 +1)];
+	if (questionsAsked.length < 10){
+		if (questionsAsked.indexOf(questionPicked) === -1){
+			questionsAsked.push(questionPicked);
+			console.log(questionPicked);
+			$("#question").html(questionPicked.q);
+			$("#o1").html(questionPicked.o1);
+			$("#o2").html(questionPicked.o2);
+			$("#o3").html(questionPicked.o3);
+			$("#o4").html(questionPicked.o4);	
+			ableToAnswer = 1;
+			startTimer();
+			$("#timer").fadeTo(1000, 1);
+		} else {
+			askQuestion();
+		}
+	} else {
+		console.log("No more questions");
+	}
+	
 }
 
 $("h3").on("click", function(){
