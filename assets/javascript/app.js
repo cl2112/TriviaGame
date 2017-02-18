@@ -239,7 +239,7 @@ function narrative(){
 	}
 	if (story === 6){
 		$("#narrativeText").html('The madman starts banging on the rail and laughing violently.');
-		document.getElementById("bang").play();
+		document.getElementById("bangSound").play();
 		$("#clickToProgress").fadeTo(2000, .6, function(){
 			clickToProgressNarrative = 1;
 		});
@@ -252,6 +252,8 @@ function narrative(){
 	}
 	if (story === 8){
 		$("#neonSign").css("bottom", "100%");
+		document.getElementById("cohenMusic").pause();
+		document.getElementById("topMusic").play();
 		$("#narrativeText").html('Gears start churning and from above, a large neon sign rolls into view.');
 		$("#neonSign").fadeTo(100, 1).animate({bottom:"30%"},5000, function(){
 			$("#clickToProgress").fadeTo(2000, .6, function(){
@@ -302,7 +304,7 @@ function runTimer(){
 		$("#narrativeText").html('"1!"');
 	}
 	if (timerCount === 0){
-		document.getElementById("shock").play();
+		document.getElementById("shockSound").play();
 		$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0);
 		$("#narrativeText").html('"Aww, looks like you ran out of time."');
 		pauseTimer();
@@ -397,10 +399,10 @@ $("h3").on("click", function(){
 			$("#timer").fadeTo(5000, 0);
 			$("#narrativeText").html('"Your answer is..."');
 			$("#narrativeText").fadeTo(5000, 0, function(){
+				document.getElementById("yaySound").play();
 				timerCount = 10;
 				$("#timer").html(timerCount);
 				$("#narrativeText").fadeTo(10, 1).html('"CORRECT!"').fadeTo(2000, 0, function(){
-					document.getElementById("yay").play();
 					$("#narrativeText").html(questionPicked.correct).fadeTo(100, 1).delay(2000).fadeTo(1000, 0, function(){
 						$("#narrativeText").html("Next Question!").fadeTo(1000, 1, function(){
 							answerPicked.css("background-color","");
@@ -420,7 +422,7 @@ $("h3").on("click", function(){
 				timerCount = 10;
 				$("#timer").html(timerCount);
 				answerPicked.css("background-color","red");
-				document.getElementById("shock").play();
+				document.getElementById("shockSound").play();
 				$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0);
 				$("#narrativeText").fadeTo(10, 1).html('"WRONG!"').fadeTo(2000, 0, function(){
 					$("#narrativeText").html("The correct answer was...").fadeTo(1000, 1, function(){
