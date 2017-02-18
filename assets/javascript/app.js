@@ -6,6 +6,9 @@ var timer;
 var story = 0;
 var clickToProgressNarrative = 1;
 var ableToAnswer = 0;
+var questionsAsked = 0;
+var correctAnswers = 0;
+var wrongAnswers = 0;
 
 
 var multipleChoice = {
@@ -197,8 +200,8 @@ function narrative(){
 	}
 	if (story === 1){
 		$("#narrativeText").html('You slowly open your eyes to a spectacle of neon lights and garrish sounds.');
-		$("#blackScreen").fadeTo(7000, 0);
-		$("#clickToProgress").delay(8000).fadeTo(2000, .6, function(){
+		$("#blackScreen").fadeTo(5000, 0);
+		$("#clickToProgress").delay(5000).fadeTo(2000, .6, function(){
 			clickToProgressNarrative = 1;
 		});
 		
@@ -245,7 +248,7 @@ function narrative(){
 	}
 	if (story === 8){
 		$("#neonSign").css("bottom", "100%");
-		$("#narrativeText").html('Gears start churning and from above a large neon sign rolls into view.');
+		$("#narrativeText").html('Gears start churning and from above, a large neon sign rolls into view.');
 		$("#neonSign").fadeTo(100, 1).animate({bottom:"30%"},5000, function(){
 			$("#clickToProgress").fadeTo(2000, .6, function(){
 			clickToProgressNarrative = 1;
@@ -319,6 +322,7 @@ function askQuestion(){
 	$("#o2").html(questionPicked.o2);
 	$("#o3").html(questionPicked.o3);
 	$("#o4").html(questionPicked.o4);
+	questionsAsked++;
 	ableToAnswer = 1;
 	startTimer();
 	$("#timer").fadeTo(1000, 1);
@@ -332,15 +336,16 @@ $("h3").on("click", function(){
 		var answerPicked = $(this);
 		if ($(this).attr("id") == questionPicked.a){
 			console.log("correct");
+			correctAnswers++;
 			$("#timer").fadeTo(5000, 0);
 			$("#narrativeText").html('"Your answer is..."');
 			$("#narrativeText").fadeTo(5000, 0, function(){
 				timerCount = 10;
 				$("#timer").html(timerCount);
-				answerPicked.css("background-color","");
 				$("#narrativeText").fadeTo(10, 1).html('"CORRECT!"').fadeTo(2000, 0, function(){
 					$("#narrativeText").html(questionPicked.correct).fadeTo(100, 1).delay(2000).fadeTo(1000, 0, function(){
 						$("#narrativeText").html("Next Question!").fadeTo(1000, 1, function(){
+							answerPicked.css("background-color","");
 							$("#timer").fadeTo(1000, 1, function(){
 							askQuestion();
 							})
@@ -350,26 +355,33 @@ $("h3").on("click", function(){
 			})
 		} else {
 			console.log("incorrect");
+			wrongAnswers++;
 			$("#timer").fadeTo(5000, 0);
 			$("#narrativeText").html('"Your answer is..."');
 			$("#narrativeText").fadeTo(5000, 0, function(){
 				timerCount = 10;
 				$("#timer").html(timerCount);
-				answerPicked.css("background-color","");
+				answerPicked.css("background-color","red");
 				$("#narrativeText").fadeTo(10, 1).html('"WRONG!"').fadeTo(2000, 0, function(){
-					$("#narrativeText").html(questionPicked.wrong).fadeTo(100, 1).delay(2000).fadeTo(1000, 0, function(){
-						$("#narrativeText").html("Next Question!").fadeTo(1000, 1, function(){
-							$("#timer").fadeTo(1000, 1, function(){
-							askQuestion();
+					$("#narrativeText").html("The correct answer was...").fadeTo(1000, 1, function(){
+						$("#"+questionPicked.a).css("background-color","gold");
+						$("#narrativeText").delay(2000).fadeTo(1000, 0, function(){
+							$("#narrativeText").html(questionPicked.wrong).fadeTo(100, 1).delay(2000).fadeTo(1000, 0, function(){
+								$("#narrativeText").html("Next Question!").fadeTo(1000, 1, function(){
+									answerPicked.css("background-color", "");
+									$("#"+questionPicked.a).css("background-color","");
+									$("#timer").fadeTo(1000, 1, function(){
+										askQuestion();
+									})
+								});
 							})
-						});
+						})
 					})
-				});
+				})
 			})
 		}
 	}
-	
-})
+});
 
 
 
