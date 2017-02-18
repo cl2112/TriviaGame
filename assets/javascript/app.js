@@ -300,9 +300,10 @@ function runTimer(){
 		pauseTimer();
 		console.log("Ran out of time.");
 		noAnswer++;
-		$("#timer").fadeTo(5000, 0);
-		timerCount = 10;
-		$("#timer").html(timerCount);
+		$("#timer").fadeTo(5000, 0, function(){
+			timerCount = 10;
+			$("#timer").html(timerCount);
+		});
 		$("#narrativeText").fadeTo(2000, 0, function(){
 			$("#narrativeText").html("The correct answer was...").fadeTo(1000, 1, function(){
 				$("#"+questionPicked.a).css("background-color","gold");
@@ -356,6 +357,19 @@ function askQuestion(){
 		}
 	} else {
 		console.log("No more questions");
+		$("#narrativeText").fadeTo(4000, 0).html("Uh...").fadeTo(3000, 1).fadeTo(2000, 0).html("Next Question!").fadeTo(10, 1, function(){
+			$("#narrativeText").fadeTo(3000, 0).html("Next Question?!").fadeTo(3000, 1).fadeTo(2000, 0, function(){
+				$("#narrativeText").html("Well then. I guess that's all the time we have.").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
+					$("#narrativeText").html("Let's see how our contestant did!").fadeTo(1000, 1, function(){
+						$("#question").html("-=Results=-");
+						$("#o1").html("Correct Answers: "+correctAnswers);
+						$("#o2").html("Wrong Answers: "+wrongAnswers);
+						$("#o3").html("Ran Out of Time: "+noAnswer);
+						$("#o4").html("");
+					})
+				})
+			})
+		})
 	}
 	
 }
