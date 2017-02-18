@@ -35,7 +35,7 @@ var multipleChoice = {
 		o4: "Juciers",
 	},
 	q3: {
-		q: "Who was the leader of the revolutionaries durring the Rapture Civil War?",
+		q: "Who was the Revolutionaries' leader for Rapture's Civil War?",
 		a: "o4",
 		correct: "Who is Atlas? Who cares I say.",
 		wrong: "Did you not see the posters? Or can you not read? Might explain your performance so far. Or not.",
@@ -45,7 +45,7 @@ var multipleChoice = {
 		o4: "Atlas",
 	},
 	q4: {
-		q: "How did 'Das Wunderkind' come to discover Adam?",
+		q: "What led 'Das Wunderkind' to discover Adam?",
 		a: "o1",
 		correct: "Crazy story. Serendipitous. Way too serendipitous.",
 		wrong: "Hah, did you really think that or do you like shocks? Can't say I blame you.",
@@ -297,6 +297,27 @@ function runTimer(){
 	}
 	if (timerCount === 0){
 		$("#narrativeText").html('"Aww, looks like you ran out of time."');
+		pauseTimer();
+		console.log("Ran out of time.");
+		noAnswer++;
+		$("#timer").fadeTo(5000, 0);
+		timerCount = 10;
+		$("#timer").html(timerCount);
+		$("#narrativeText").fadeTo(2000, 0, function(){
+			$("#narrativeText").html("The correct answer was...").fadeTo(1000, 1, function(){
+				$("#"+questionPicked.a).css("background-color","gold");
+				$("#narrativeText").delay(2000).fadeTo(1000, 0, function(){
+					$("#narrativeText").html("Not bad but, try giving an answer next time. Just a little advice.").fadeTo(100, 1).delay(2000).fadeTo(1000, 0, function(){
+						$("#narrativeText").html("Next Question!").fadeTo(1000, 1, function(){
+							$("#"+questionPicked.a).css("background-color","");
+							$("#timer").fadeTo(1000, 1, function(){
+								askQuestion();
+							})
+						});
+					})
+				})
+			})
+		})
 	}
 	timerCount--;
 }
