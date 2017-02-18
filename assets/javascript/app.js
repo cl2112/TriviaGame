@@ -272,8 +272,12 @@ function narrative(){
 	if (story === 11){
 		$("#narrativeText").html('"Oh, and you only have 10 seconds to answer. HAH! Here we go!"');
 		$("#clickToProgress").delay(1000).fadeTo(2000, 0, function(){
+			$("#blackScreen").css("background-color","red");
 			askQuestion();
 		});
+	}
+	if (story === 12){
+		ending();
 	}
 }
 
@@ -366,6 +370,8 @@ function askQuestion(){
 						$("#o2").html("Wrong Answers: "+wrongAnswers);
 						$("#o3").html("Ran Out of Time: "+noAnswer);
 						$("#o4").html("");
+						clickToProgressNarrative = 1;
+						$("#clickToProgress").fadeTo(5000,1);
 					})
 				})
 			})
@@ -430,7 +436,34 @@ $("h3").on("click", function(){
 });
 
 
+function ending(){
+	$("#narrativeText").fadeTo(3000, 0, function(){
+		$("#neonSign").animate({bottom:"100%"},5000);
+		$("#narrativeText").html("WOW! What a show folks!").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0,function(){
+			$("#narrativeText").html("Now it's time for the prize!").fadeTo(1000, 1).delay(2000).fadeTo(1000,0, function(){
+				if (correctAnswers == 10){
+					$("#narrativeText").html("AMAZING! What a performance! You deserve the ultimate prize!").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
+						$("#narrativeText").html("And that's just what you'll get.").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
+							$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0, function(){
+								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
+									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
+										$("#narrativeText").html("Maybe I should change the show's name to Alive <b>AND</b> Dead?");
+									})
+								});
+							})
+						})
+					})
+				} else if (correctAnswers > 5) {
 
+				} else if (correctAnswers > 2) {
+
+				} else {
+
+				}
+			})
+		})
+	})
+}
 
 
 
