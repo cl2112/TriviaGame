@@ -361,6 +361,7 @@ function askQuestion(){
 		}
 	} else {
 		console.log("No more questions");
+		ableToAnswer = 0;
 		$("#narrativeText").fadeTo(4000, 0).html("Uh...").fadeTo(3000, 1).fadeTo(2000, 0).html("Next Question!").fadeTo(10, 1, function(){
 			$("#narrativeText").fadeTo(3000, 0).html("Next Question?!").fadeTo(3000, 1).fadeTo(2000, 0, function(){
 				$("#narrativeText").html("Well then. I guess that's all the time we have.").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
@@ -381,7 +382,7 @@ function askQuestion(){
 }
 
 $("h3").on("click", function(){
-	if(ableToAnswer = 1){
+	if(ableToAnswer === 1){
 		ableToAnswer = 0;
 		pauseTimer();
 		$(this).css("background-color","gold");
@@ -438,6 +439,12 @@ $("h3").on("click", function(){
 
 function ending(){
 	$("#narrativeText").fadeTo(3000, 0, function(){
+		$("#question").remove();
+		$("#o1").remove();
+		$("#o2").remove();
+		$("#o3").remove();
+		$("#o4").remove();
+		$("#timer").fadeTo(2000, 0);
 		$("#neonSign").animate({bottom:"100%"},5000);
 		$("#narrativeText").html("WOW! What a show folks!").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0,function(){
 			$("#narrativeText").html("Now it's time for the prize!").fadeTo(1000, 1).delay(2000).fadeTo(1000,0, function(){
@@ -447,18 +454,48 @@ function ending(){
 							$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0, function(){
 								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
 									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
-										$("#narrativeText").html("Maybe I should change the show's name to Alive <b>AND</b> Dead?");
+										$("#narrativeText").html("Maybe I should change the show's name to Smart <b>AND</b> Dead?").fadeTo(5000,1);
 									})
 								});
 							})
 						})
 					})
 				} else if (correctAnswers > 5) {
-
+					$("#narrativeText").html("Not Bad! Not Great! Exciting! Bet you can't wait to get your prize!").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
+						$("#narrativeText").html("And that's just what you'll get.").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
+							$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0, function(){
+								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
+									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
+										$("#narrativeText").html("I LOVE THIS GAME!").fadeTo(5000,1);
+									})
+								});
+							})
+						})
+					})
 				} else if (correctAnswers > 2) {
-
+					$("#narrativeText").html("Ouch! Well, you ain't smart. But! You still deserve a prize for playing!").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
+						$("#narrativeText").html("And that's just what you'll get.").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
+							$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0, function(){
+								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
+									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
+										$("#narrativeText").html("I love this game!").fadeTo(5000,1);
+									})
+								});
+							})
+						})
+					})
 				} else {
-
+					$("#narrativeText").html("Shocking! You'll go down in history as the worst contestant I have ever seen!").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
+						$("#narrativeText").html("And! Just in case your not dead enough.").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
+							$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0, function(){
+								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
+									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
+										$("#narrativeText").html("Hmm. They just don't make contestants like they used to.").fadeTo(5000,1);
+									})
+								});
+							})
+						})
+					})
 				}
 			})
 		})
