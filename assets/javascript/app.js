@@ -239,7 +239,6 @@ function narrative(){
 	}
 	if (story === 6){
 		$("#narrativeText").html('The madman starts banging on the rail and laughing violently.');
-		document.getElementById("bangSound").play();
 		$("#clickToProgress").fadeTo(2000, .6, function(){
 			clickToProgressNarrative = 1;
 		});
@@ -460,11 +459,12 @@ function ending(){
 				if (correctAnswers == 10){
 					$("#narrativeText").html("AMAZING! What a performance! You deserve the ultimate prize!").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
 						$("#narrativeText").html("And that's just what you'll get.").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
+							document.getElementById("shockSound").play();
 							$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0, function(){
 								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
 									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
 										$("#narrativeText").html("Maybe I should change the show's name to Smart <b>AND</b> Dead?").fadeTo(5000,1, function(){
-											$("#neonSignScreen").append("<h1 id='clickToPlayAgain'>Click Here To Play Again!</h1>");
+											$("#neonSignScreen").append("<h1 class='clickToPlayAgain'>Click Here To Play Again!</h1>");
 											playAgain=1;
 										});
 									})
@@ -475,11 +475,12 @@ function ending(){
 				} else if (correctAnswers > 5) {
 					$("#narrativeText").html("Not Bad! Not Great! Exciting! Bet you can't wait to get your prize!").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
 						$("#narrativeText").html("And that's just what you'll get.").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
+							document.getElementById("shockSound").play();
 							$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0, function(){
 								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
 									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
 										$("#narrativeText").html("I LOVE THIS GAME!").fadeTo(5000,1, function(){
-											$("#neonSignScreen").append("<h1 id='clickToPlayAgain'>Click Here To Play Again!</h1>");
+											$("#neonSignScreen").append("<h1 class='clickToPlayAgain'>Click Here To Play Again!</h1>");
 											playAgain=1;
 										});
 									})
@@ -490,11 +491,12 @@ function ending(){
 				} else if (correctAnswers > 2) {
 					$("#narrativeText").html("Ouch! Well, you ain't smart. But! You still deserve a prize for playing!").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
 						$("#narrativeText").html("And that's just what you'll get.").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
+							document.getElementById("shockSound").play();
 							$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0, function(){
 								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
 									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
 										$("#narrativeText").html("I love this game!").fadeTo(5000,1, function(){
-											$("#neonSignScreen").append("<h1 id='clickToPlayAgain'>Click Here To Play Again!</h1>");
+											$("#neonSignScreen").append("<h1 class='clickToPlayAgain'>Click Here To Play Again!</h1>");
 											playAgain=1;
 										});
 									})
@@ -505,11 +507,12 @@ function ending(){
 				} else {
 					$("#narrativeText").html("Shocking! You'll go down in history as the worst contestant I have ever seen!").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
 						$("#narrativeText").html("And! Just in case your not dead enough.").fadeTo(1000, 1).delay(2000).fadeTo(1000, 0, function(){
+							document.getElementById("shockSound").play();
 							$("#blackScreen").fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0).fadeTo(10, 1).fadeTo(10, 0, function(){
 								$("#blackScreen").css("background-color", "black").fadeTo(5000,1, function(){
 									$("#narrativeText").html("HA HA HA HA HA HA AHA HA HAHA AHAH HAH!").fadeTo(1000, 1).delay(4000).fadeTo(1000, 0, function(){
 										$("#narrativeText").html("Hmm. They just don't make contestants like they used to.").fadeTo(5000,1, function(){
-											$("#neonSignScreen").append("<h1 id='clickToPlayAgain'>Click Here To Play Again!</h1>");
+											$("#neonSignScreen").append("<h1 class='clickToPlayAgain'>Click Here To Play Again!</h1>");
 											playAgain=1;
 										});
 									})
@@ -536,8 +539,8 @@ $("[id^='o']").on("mouseout", function(){
 });
 
 
-$("#clickToPlayAgain").on("click", function(){
-	if (playAgain === 1){
+$("#neonSignScreen").on("click",".clickToPlayAgain", function(){
+	if (playAgain == 1){
 		location.reload(true);
 	}
 })
