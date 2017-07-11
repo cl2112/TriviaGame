@@ -211,7 +211,7 @@ function narrative(){
 	}
 	if (story === 2){
 		$("#blackScreen").fadeTo(2000, 1, function(){
-			$(".mainContainer").delay(2000).css("background-image","url(assets/images/Frolic_Splicer.png)");
+			$(".mainContainer").delay(2000).css("background-image","url(../assets/images/Frolic_Splicer.png)");
 			$("#narrativeText").delay(2000).html('A figure wearing a decrepid mask starts speaking, as if to an audience.');
 			$("#blackScreen").fadeTo(3000, 0);
 			$("#clickToProgress").delay(3000).fadeTo(2000, .6, function(){
